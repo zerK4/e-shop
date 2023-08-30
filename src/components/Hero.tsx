@@ -50,7 +50,7 @@ function Hero({ images }: { images: string[] }) {
                   }}
                   transition={{
                     type: "keyframes",
-                    duration: 2,
+                    duration: 1,
                   }}
                   className={`p-4 h-fit w-fit md:min-h-[400px] items-center ${
                     index === 2
@@ -60,12 +60,12 @@ function Hero({ images }: { images: string[] }) {
                       : ""
                   }`}
                 >
-                  <div className="relative h-60 min-w-[200px] w-full 3xl:h-72 3xl:w-52 overflow-hidden">
+                  <div className="relative h-60 min-w-[200px] w-full 3xl:h-72 3xl:w-52 overflow-hidden mix-blend-multiply contrast-100">
                     <Image
                       src={image || "/next.svg"}
                       fill
                       alt="Hero image"
-                      className="object-contain overflow-hidden"
+                      className="object-contain overflow-hidden mix-blend-multiply contrast-100"
                     />
                   </div>
                 </motion.div>
