@@ -39,16 +39,18 @@ function Hero({ images }: { images: string[] }) {
               return (
                 <motion.div
                   key={index}
-                  initial={{ y: 0, rotateX: 0 }}
+                  initial={{ y: 0, rotateX: 0, scale: 3, opacity: 0 }}
                   animate={{
                     y: `${
                       index === 0 ? -displacementValue : displacementValue
                     }px`,
                     rotate: 20,
+                    scale: 1,
+                    opacity: 1,
                   }}
                   transition={{
                     type: "keyframes",
-                    duration: 3,
+                    duration: 2,
                   }}
                   className={`p-4 h-fit w-fit md:min-h-[400px] items-center ${
                     index === 2
