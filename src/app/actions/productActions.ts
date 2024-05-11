@@ -18,8 +18,6 @@ export async function getAllCategories() {
     return { categories };
   } catch (error) {
     console.log(error);
-
-    throw error;
   }
 }
 
@@ -32,8 +30,6 @@ export async function getHeroProducts() {
     };
   } catch (error) {
     console.log(error);
-
-    throw error;
   }
 }
 
@@ -44,7 +40,5 @@ export async function getAllProducts() {
     return { products: data };
   } catch (error) {
     console.log(error);
-
-    throw error;
   }
 }
