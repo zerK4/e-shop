@@ -8,7 +8,7 @@ const BASE_URL =
 export async function getAllCategories() {
   try {
     const { data } = await axios.get(`${BASE_URL}/api/products`);
-
+    console.log(BASE_URL, data, "categories here");
     if (data.length === 0) return { categories: [] };
 
     const categories = new Set(
@@ -28,6 +28,8 @@ export async function getAllCategories() {
 export async function getHeroProducts() {
   try {
     const { data } = await axios.get(`${BASE_URL}/api/products`);
+    console.log(BASE_URL, data, "products here");
+    if (data.length === 0) return { products: [] };
 
     return {
       products: data.splice(0, 3),
@@ -42,6 +44,8 @@ export async function getHeroProducts() {
 export async function getAllProducts() {
   try {
     const { data } = await axios.get(`${BASE_URL}/api/products`);
+    console.log(BASE_URL, data, "products here");
+    if (data.length === 0) return { products: [] };
 
     return { products: data };
   } catch (error) {
