@@ -2,11 +2,12 @@
 
 import axios from "axios";
 
+const BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL || "https://e-shop-s-pavel.vercel.app";
+
 export async function getAllCategories() {
   try {
-    const { data } = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/products`
-    );
+    const { data } = await axios.get(`${BASE_URL}/api/products`);
 
     const categories = new Set(
       (data as Product[])
@@ -24,9 +25,7 @@ export async function getAllCategories() {
 
 export async function getHeroProducts() {
   try {
-    const { data } = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/products`
-    );
+    const { data } = await axios.get(`${BASE_URL}/api/products`);
 
     return {
       products: data.splice(0, 3),
@@ -40,9 +39,7 @@ export async function getHeroProducts() {
 
 export async function getAllProducts() {
   try {
-    const { data } = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/products`
-    );
+    const { data } = await axios.get(`${BASE_URL}/api/products`);
 
     return { products: data };
   } catch (error) {
