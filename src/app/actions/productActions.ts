@@ -9,6 +9,8 @@ export async function getAllCategories() {
   try {
     const { data } = await axios.get(`${BASE_URL}/api/products`);
 
+    if (data.length === 0) return { categories: [] };
+
     const categories = new Set(
       (data as Product[])
         .map((x: any) => x.category)
@@ -18,6 +20,8 @@ export async function getAllCategories() {
     return { categories };
   } catch (error) {
     console.log(error);
+
+    return { categories: [] };
   }
 }
 
@@ -30,6 +34,8 @@ export async function getHeroProducts() {
     };
   } catch (error) {
     console.log(error);
+
+    return { products: [] };
   }
 }
 
@@ -40,5 +46,7 @@ export async function getAllProducts() {
     return { products: data };
   } catch (error) {
     console.log(error);
+
+    return { products: [] };
   }
 }
