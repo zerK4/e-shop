@@ -22,7 +22,7 @@ import {
 } from "./ui/sheet";
 import { Separator } from "./ui/separator";
 
-function Header({ categories }: { categories: Set<any> }) {
+function Header({ categories }: { categories: never[] | Set<any> }) {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([
     "All",
     ...categories,
