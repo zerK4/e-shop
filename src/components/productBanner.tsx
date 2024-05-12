@@ -15,7 +15,7 @@ export const ProductsBanner = ({ products }: { products: Product[] }) => {
         >
           <ProductImage product={product} key={i} />
           <Link
-            href={`/product/${product.title
+            href={`/products/${product.title
               .split(" ")
               .join("-")
               .split("'")

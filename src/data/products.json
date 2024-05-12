@@ -2,6 +2,7 @@
     {
         "id": "D5C9B7B-CAE0-4B39-A8E2-49D7A7D",
         "title": "Hold ma' wine hoodie",
+        "slug": "hold-ma-wine-hoodie",
         "category": "hoodies",
         "vendor": "Aheader",
         "description": "Stay warm and cozy in our Rainbow Beanie. Made from soft, high-quality cotton blend fabric, this beanie is perfect for casual wear. The relaxed fit allows for a comfortable range of motion, and the colorful rainbow print on the side makes it a fun and playful addition to any wardrobe.",
@@ -15,12 +16,26 @@
             "https://utfs.io/f/ebea5614-d18e-4b22-9831-096a2f6ca8d3-lovdzv.png",
             "https://utfs.io/f/5d07ba98-6ec9-4450-b29e-6d1ce0fbab8c-mh6duu.png"
         ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
+        "attributes": [
+            {
+                "name": "color",
+                "options": [
+                    "Red",
+                    "Blue",
+                    "Green",
+                    "Black"
+                ]
+            },
+            {
+                "name": "Sizes",
+                "options": [
+                    "S",
+                    "M",
+                    "L",
+                    "XL",
+                    "XXL"
+                ]
+            }
         ],
         "material": "Cotton blend",
         "care": "Machine wash cold",
@@ -72,6 +87,7 @@
     {
         "id": "3E4BCA3-FAAF-4B38-8C4B-D5C9B7Basd",
         "title": "Animal hoodie",
+        "slug": "animal-hoodie",
         "category": "hoodies",
         "vendor": "Aheader",
         "description": "Stay cool and stylish in our Tropical T-Shirt. Made from soft, high-quality cotton blend fabric, this t-shirt is perfect for casual wear. The relaxed fit allows for a comfortable range of motion, and the bold, colorful tropical print on the front makes it a fun and playful addition to any wardrobe.",
@@ -84,12 +100,26 @@
             "https://utfs.io/f/8ffc9171-d49b-4116-abfa-d9b7308ec3fc-iwppv6.png",
             "https://utfs.io/f/27092dab-ce43-4a07-96f5-be833c9ac9d6-15bcl6.png"
         ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
+        "attributes": [
+            {
+                "name": "color",
+                "options": [
+                    "Red",
+                    "Blue",
+                    "Green",
+                    "Black"
+                ]
+            },
+            {
+                "name": "Sizes",
+                "options": [
+                    "S",
+                    "M",
+                    "L",
+                    "XL",
+                    "XXL"
+                ]
+            }
         ],
         "material": "Cotton blend",
         "care": "Machine wash cold",
@@ -141,6 +171,7 @@
     {
         "id": "3E4BCA3-FAAF-4B38-8C4B-D5C9B7Bwqaaa",
         "title": "Hold ma wine hoodie",
+        "slug": "hold-ma-wine-hoodie",
         "category": "hoodies",
         "vendor": "Aheader",
         "description": "Stay cool and stylish in our Tropical T-Shirt. Made from soft, high-quality cotton blend fabric, this t-shirt is perfect for casual wear. The relaxed fit allows for a comfortable range of motion, and the bold, colorful tropical print on the front makes it a fun and playful addition to any wardrobe.",
@@ -154,12 +185,26 @@
             "https://utfs.io/f/62ce4241-6cf1-4d8e-9f0f-8f73bdafe349-iv4ac1.png",
             "https://utfs.io/f/565bd098-fb88-4e23-84c1-8a57f03a1c60-59ani3.png"
         ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
+        "attributes": [
+            {
+                "name": "color",
+                "options": [
+                    "Red",
+                    "Blue",
+                    "Green",
+                    "Black"
+                ]
+            },
+            {
+                "name": "Sizes",
+                "options": [
+                    "S",
+                    "M",
+                    "L",
+                    "XL",
+                    "XXL"
+                ]
+            }
         ],
         "material": "Cotton blend",
         "care": "Machine wash cold",
@@ -210,8 +255,9 @@
     },
     {
         "id": "3E4BCA3-FAAF-4B38-8C4B-D5C9B7B",
-        "title": "Tropical T-Shirt",
-        "category": "topwear",
+        "title": "Aheader hoodie",
+        "slug": "aheader-hoodie",
+        "category": "hoodies",
         "vendor": "Aheader",
         "description": "Stay cool and stylish in our Tropical T-Shirt. Made from soft, high-quality cotton blend fabric, this t-shirt is perfect for casual wear. The relaxed fit allows for a comfortable range of motion, and the bold, colorful tropical print on the front makes it a fun and playful addition to any wardrobe.",
         "price": 14.99,
@@ -221,12 +267,26 @@
         "images": [
             "https://utfs.io/f/479399b7-1398-4f14-9d7a-15129ef1ce8a-arqk0t.png"
         ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
+        "attributes": [
+            {
+                "name": "color",
+                "options": [
+                    "Red",
+                    "Blue",
+                    "Green",
+                    "Black"
+                ]
+            },
+            {
+                "name": "Sizes",
+                "options": [
+                    "S",
+                    "M",
+                    "L",
+                    "XL",
+                    "XXL"
+                ]
+            }
         ],
         "material": "Cotton blend",
         "care": "Machine wash cold",
@@ -277,8 +337,9 @@
     },
     {
         "id": "3E4BCA3-FAAF-4B38-8C4B-D5C9B7B",
-        "title": "Tropical T-Shirt",
-        "category": "topwear",
+        "title": "Aheader hoodie 1",
+        "slug": "aheader-hoodie-1",
+        "category": "hoodies",
         "vendor": "Aheader",
         "description": "Stay cool and stylish in our Tropical T-Shirt. Made from soft, high-quality cotton blend fabric, this t-shirt is perfect for casual wear. The relaxed fit allows for a comfortable range of motion, and the bold, colorful tropical print on the front makes it a fun and playful addition to any wardrobe.",
         "price": 14.99,
@@ -288,12 +349,26 @@
         "images": [
             "https://utfs.io/f/479399b7-1398-4f14-9d7a-15129ef1ce8a-arqk0t.png"
         ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
+        "attributes": [
+            {
+                "name": "color",
+                "options": [
+                    "Red",
+                    "Blue",
+                    "Green",
+                    "Black"
+                ]
+            },
+            {
+                "name": "Sizes",
+                "options": [
+                    "S",
+                    "M",
+                    "L",
+                    "XL",
+                    "XXL"
+                ]
+            }
         ],
         "material": "Cotton blend",
         "care": "Machine wash cold",
@@ -344,8 +419,9 @@
     },
     {
         "id": "3E4BCA3-FAAF-4B38-8C4B-D5C9B7B",
-        "title": "Tropical T-Shirt",
-        "category": "topwear",
+        "title": "Hold ma' wine beanie",
+        "slug": "hold-ma-wine-beanie",
+        "category": "beanies",
         "vendor": "Aheader",
         "description": "Stay cool and stylish in our Tropical T-Shirt. Made from soft, high-quality cotton blend fabric, this t-shirt is perfect for casual wear. The relaxed fit allows for a comfortable range of motion, and the bold, colorful tropical print on the front makes it a fun and playful addition to any wardrobe.",
         "price": 14.99,
@@ -353,14 +429,35 @@
         "currency": "USD",
         "available": true,
         "images": [
-            "https://utfs.io/f/479399b7-1398-4f14-9d7a-15129ef1ce8a-arqk0t.png"
+            "https://utfs.io/f/9e5c1b43-acaa-4277-ab4b-ce30affca089-oqxc7l.png",
+            "https://utfs.io/f/9a83ea6f-7299-44fc-beac-4ed44eb28cfa-grc9g0.png",
+            "https://utfs.io/f/851b1991-3706-4fa9-874c-f70a1f172bf8-92vd5w.png",
+            "https://utfs.io/f/159d6560-ad79-4bc3-913b-ef6b1b3774c1-i19ut3.png",
+            "https://utfs.io/f/23a3652c-b229-4264-82cb-666789a534fc-gf4vad.png",
+            "https://utfs.io/f/c2dd4e7c-3cf0-482c-9f09-1ce01b899806-wric63.png",
+            "https://utfs.io/f/a2868474-90f6-4a54-89f2-a10205659f15-263gq7.png",
+            "https://utfs.io/f/4a9470e1-7206-48b9-90e3-cb1171fe8193-p1rw21.png"
         ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
+        "attributes": [
+            {
+                "name": "color",
+                "options": [
+                    "Red",
+                    "Blue",
+                    "Green",
+                    "Black"
+                ]
+            },
+            {
+                "name": "Sizes",
+                "options": [
+                    "S",
+                    "M",
+                    "L",
+                    "XL",
+                    "XXL"
+                ]
+            }
         ],
         "material": "Cotton blend",
         "care": "Machine wash cold",
@@ -411,8 +508,9 @@
     },
     {
         "id": "3E4BCA3-FAAF-4B38-8C4B-D5C9B7B",
-        "title": "Tropical T-Shirt",
-        "category": "topwear",
+        "title": "Stitch Beanie",
+        "slug": "stitch-beanie",
+        "category": "beanies",
         "vendor": "Aheader",
         "description": "Stay cool and stylish in our Tropical T-Shirt. Made from soft, high-quality cotton blend fabric, this t-shirt is perfect for casual wear. The relaxed fit allows for a comfortable range of motion, and the bold, colorful tropical print on the front makes it a fun and playful addition to any wardrobe.",
         "price": 14.99,
@@ -420,14 +518,36 @@
         "currency": "USD",
         "available": true,
         "images": [
-            "https://utfs.io/f/479399b7-1398-4f14-9d7a-15129ef1ce8a-arqk0t.png"
+            "https://utfs.io/f/1a6caeae-a171-4c42-8120-f933ca62e14e-25huue.png",
+            "https://utfs.io/f/83446680-92fe-4c3d-968a-8fec6afeef65-jxusl8.png",
+            "https://utfs.io/f/5c0c93a6-fca6-479f-94b9-888cdf9c5ebd-a63mjs.png",
+            "https://utfs.io/f/e60ed9b8-5933-453f-ad4d-04dc2112ec41-9v8azo.png",
+            "https://utfs.io/f/3026cd38-b971-4ecc-832f-8787a34e9ff2-xy0d5x.png",
+            "https://utfs.io/f/e15ce2a6-993a-438c-b0b6-1f07a170f64a-ihw4em.png",
+            "https://utfs.io/f/add8fd0a-ede3-4d55-a7b2-2e4130fbdf9a-gvqc96.png",
+            "https://utfs.io/f/12d020c5-e9d5-4f1a-adc0-c8a0225f6160-i5ornc.png",
+            "https://utfs.io/f/47f6fdf7-d236-441d-b917-9a0cf4a41db7-r17orb.png"
         ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
+        "attributes": [
+            {
+                "name": "color",
+                "options": [
+                    "Red",
+                    "Blue",
+                    "Green",
+                    "Black"
+                ]
+            },
+            {
+                "name": "Sizes",
+                "options": [
+                    "S",
+                    "M",
+                    "L",
+                    "XL",
+                    "XXL"
+                ]
+            }
         ],
         "material": "Cotton blend",
         "care": "Machine wash cold",
@@ -478,8 +598,9 @@
     },
     {
         "id": "3E4BCA3-FAAF-4B38-8C4B-D5C9B7B",
-        "title": "Tropical T-Shirt",
-        "category": "topwear",
+        "title": "Hand hoodie",
+        "slug": "hand-hoodie",
+        "category": "hoodies",
         "vendor": "Aheader",
         "description": "Stay cool and stylish in our Tropical T-Shirt. Made from soft, high-quality cotton blend fabric, this t-shirt is perfect for casual wear. The relaxed fit allows for a comfortable range of motion, and the bold, colorful tropical print on the front makes it a fun and playful addition to any wardrobe.",
         "price": 14.99,
@@ -487,215 +608,32 @@
         "currency": "USD",
         "available": true,
         "images": [
-            "https://utfs.io/f/479399b7-1398-4f14-9d7a-15129ef1ce8a-arqk0t.png"
+            "https://utfs.io/f/fad3ca92-ac0d-4c71-86dd-61270a2f4540-q2eauh.png",
+            "https://utfs.io/f/cb179ac2-1c11-4dfa-a2f3-0f168367e225-owpmcz.png",
+            "https://utfs.io/f/71c2acf2-81df-4caa-a06e-9622dca46619-q2dkyx.png",
+            "https://utfs.io/f/d091d390-9139-463c-aa93-65f3a836eb1b-owp9r0.png",
+            "https://utfs.io/f/5fe6938c-6959-43f8-bd77-18c825094ce6-spvp5.png"
         ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
-        ],
-        "material": "Cotton blend",
-        "care": "Machine wash cold",
-        "additional_info": {
-            "fit": "Relaxed fit",
-            "features": [
-                "Breathable fabric"
-            ]
-        },
-        "rating": 4.5,
-        "reviews": [
+        "attributes": [
             {
-                "id": "8B1F-3E4BCA3-FAAF-4B38-8C4B-D5C9B7B",
-                "user_name": "Linda",
-                "rating": 4,
-                "review": "I got this t-shirt as a gift and I love it. The material is really soft and the fit is great. I've worn it a bunch of times and it still looks great.",
-                "date": "2022-08-21T17:00:00.000Z"
+                "name": "color",
+                "options": [
+                    "Red",
+                    "Blue",
+                    "Green",
+                    "Black"
+                ]
             },
             {
-                "id": "C1B2F1C-BA3F-49C7-8C44-3E4BCA3",
-                "user_name": "Bob",
-                "rating": 5,
-                "review": "I bought this t-shirt on a whim and I'm so glad I did. It's super comfy and the tropical print is really cool. I've gotten a lot of comments when I wear it out.",
-                "date": "2022-09-23T16:00:00.000Z"
-            },
-            {
-                "id": "B2F3C1B-BAF3-C1B7-8F44-3E4BCA3",
-                "user_name": "Jen",
-                "rating": 5,
-                "review": "This t-shirt is my favorite! It's so comfortable and the tropical print is so cute. I've gotten so many compliments when I wear it.",
-                "date": "2022-11-27T17:00:00.000Z"
-            },
-            {
-                "id": "3C1B2F1C-BA3F-49C7-8C44-3E4BCA3",
-                "user_name": "Dennis",
-                "rating": 4,
-                "review": "I really love this t-shirt! The material is super soft and the fit is comfy. I got a lot of compliments when I wore it out.",
-                "date": "2022-12-17T16:10:00.000Z"
-            },
-            {
-                "id": "8F44-BFAF-8B1F-3E4BCA3",
-                "user_name": "Linda",
-                "rating": 4,
-                "review": "I got this t-shirt as a gift and I love it. It's so soft and the fit is great. I've washed it a few times and it still looks great.",
-                "date": "2022-10-09T16:00:00.000Z"
+                "name": "Sizes",
+                "options": [
+                    "S",
+                    "M",
+                    "L",
+                    "XL",
+                    "XXL"
+                ]
             }
-        ]
-    },
-    {
-        "id": "3E4BCA3-FAAF-4B38-8C4B-D5C9B7B",
-        "title": "Tropical T-Shirt",
-        "category": "topwear",
-        "vendor": "Aheader",
-        "description": "Stay cool and stylish in our Tropical T-Shirt. Made from soft, high-quality cotton blend fabric, this t-shirt is perfect for casual wear. The relaxed fit allows for a comfortable range of motion, and the bold, colorful tropical print on the front makes it a fun and playful addition to any wardrobe.",
-        "price": 14.99,
-        "sale_price": null,
-        "currency": "USD",
-        "available": true,
-        "images": [
-            "https://utfs.io/f/479399b7-1398-4f14-9d7a-15129ef1ce8a-arqk0t.png"
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
-        ],
-        "material": "Cotton blend",
-        "care": "Machine wash cold",
-        "additional_info": {
-            "fit": "Relaxed fit",
-            "features": [
-                "Breathable fabric"
-            ]
-        },
-        "rating": 4.5,
-        "reviews": [
-            {
-                "id": "8B1F-3E4BCA3-FAAF-4B38-8C4B-D5C9B7B",
-                "user_name": "Linda",
-                "rating": 4,
-                "review": "I got this t-shirt as a gift and I love it. The material is really soft and the fit is great. I've worn it a bunch of times and it still looks great.",
-                "date": "2022-08-21T17:00:00.000Z"
-            },
-            {
-                "id": "C1B2F1C-BA3F-49C7-8C44-3E4BCA3",
-                "user_name": "Bob",
-                "rating": 5,
-                "review": "I bought this t-shirt on a whim and I'm so glad I did. It's super comfy and the tropical print is really cool. I've gotten a lot of comments when I wear it out.",
-                "date": "2022-09-23T16:00:00.000Z"
-            },
-            {
-                "id": "B2F3C1B-BAF3-C1B7-8F44-3E4BCA3",
-                "user_name": "Jen",
-                "rating": 5,
-                "review": "This t-shirt is my favorite! It's so comfortable and the tropical print is so cute. I've gotten so many compliments when I wear it.",
-                "date": "2022-11-27T17:00:00.000Z"
-            },
-            {
-                "id": "3C1B2F1C-BA3F-49C7-8C44-3E4BCA3",
-                "user_name": "Dennis",
-                "rating": 4,
-                "review": "I really love this t-shirt! The material is super soft and the fit is comfy. I got a lot of compliments when I wore it out.",
-                "date": "2022-12-17T16:10:00.000Z"
-            },
-            {
-                "id": "8F44-BFAF-8B1F-3E4BCA3",
-                "user_name": "Linda",
-                "rating": 4,
-                "review": "I got this t-shirt as a gift and I love it. It's so soft and the fit is great. I've washed it a few times and it still looks great.",
-                "date": "2022-10-09T16:00:00.000Z"
-            }
-        ]
-    },
-    {
-        "id": "3E4BCA3-FAAF-4B38-8C4B-D5C9B7B",
-        "title": "Tropical T-Shirt",
-        "category": "topwear",
-        "vendor": "Aheader",
-        "description": "Stay cool and stylish in our Tropical T-Shirt. Made from soft, high-quality cotton blend fabric, this t-shirt is perfect for casual wear. The relaxed fit allows for a comfortable range of motion, and the bold, colorful tropical print on the front makes it a fun and playful addition to any wardrobe.",
-        "price": 14.99,
-        "sale_price": null,
-        "currency": "USD",
-        "available": true,
-        "images": [
-            "https://utfs.io/f/479399b7-1398-4f14-9d7a-15129ef1ce8a-arqk0t.png"
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
-        ],
-        "material": "Cotton blend",
-        "care": "Machine wash cold",
-        "additional_info": {
-            "fit": "Relaxed fit",
-            "features": [
-                "Breathable fabric"
-            ]
-        },
-        "rating": 4.5,
-        "reviews": [
-            {
-                "id": "8B1F-3E4BCA3-FAAF-4B38-8C4B-D5C9B7B",
-                "user_name": "Linda",
-                "rating": 4,
-                "review": "I got this t-shirt as a gift and I love it. The material is really soft and the fit is great. I've worn it a bunch of times and it still looks great.",
-                "date": "2022-08-21T17:00:00.000Z"
-            },
-            {
-                "id": "C1B2F1C-BA3F-49C7-8C44-3E4BCA3",
-                "user_name": "Bob",
-                "rating": 5,
-                "review": "I bought this t-shirt on a whim and I'm so glad I did. It's super comfy and the tropical print is really cool. I've gotten a lot of comments when I wear it out.",
-                "date": "2022-09-23T16:00:00.000Z"
-            },
-            {
-                "id": "B2F3C1B-BAF3-C1B7-8F44-3E4BCA3",
-                "user_name": "Jen",
-                "rating": 5,
-                "review": "This t-shirt is my favorite! It's so comfortable and the tropical print is so cute. I've gotten so many compliments when I wear it.",
-                "date": "2022-11-27T17:00:00.000Z"
-            },
-            {
-                "id": "3C1B2F1C-BA3F-49C7-8C44-3E4BCA3",
-                "user_name": "Dennis",
-                "rating": 4,
-                "review": "I really love this t-shirt! The material is super soft and the fit is comfy. I got a lot of compliments when I wore it out.",
-                "date": "2022-12-17T16:10:00.000Z"
-            },
-            {
-                "id": "8F44-BFAF-8B1F-3E4BCA3",
-                "user_name": "Linda",
-                "rating": 4,
-                "review": "I got this t-shirt as a gift and I love it. It's so soft and the fit is great. I've washed it a few times and it still looks great.",
-                "date": "2022-10-09T16:00:00.000Z"
-            }
-        ]
-    },
-    {
-        "id": "3E4BCA3-FAAF-4B38-8C4B-D5C9B7B",
-        "title": "Tropical T-Shirt",
-        "category": "topwear",
-        "vendor": "Aheader",
-        "description": "Stay cool and stylish in our Tropical T-Shirt. Made from soft, high-quality cotton blend fabric, this t-shirt is perfect for casual wear. The relaxed fit allows for a comfortable range of motion, and the bold, colorful tropical print on the front makes it a fun and playful addition to any wardrobe.",
-        "price": 14.99,
-        "sale_price": null,
-        "currency": "USD",
-        "available": true,
-        "images": [
-            "https://utfs.io/f/479399b7-1398-4f14-9d7a-15129ef1ce8a-arqk0t.png"
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
         ],
         "material": "Cotton blend",
         "care": "Machine wash cold",

@@ -10,7 +10,6 @@ import {
   Linkedin,
   Menu,
   Search,
-  ShoppingCart,
   Youtube,
 } from "lucide-react";
 import {
@@ -21,6 +20,7 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { Separator } from "./ui/separator";
+import { CartSheet } from "./cartSheet";
 
 function Header({ categories }: { categories: never[] | Set<any> }) {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([
@@ -29,7 +29,9 @@ function Header({ categories }: { categories: never[] | Set<any> }) {
   ]);
   return (
     <header className='flex items-center justify-between h-20 px-6'>
-      <div className='w-fit mr-4 hidden md:flex'>Logo</div>
+      <Link href={"/"}>
+        <div className='w-fit mr-4 hidden md:flex'>Logo</div>
+      </Link>
       <MobileNav selectedCategories={selectedCategories} />
       <nav className='md:flex flex-1 gap-2 hidden'>
         {selectedCategories.map((category, i) => (
@@ -113,26 +115,6 @@ const MobileNav = ({
             <Youtube size={16} />
           </Button>
         </div>
-      </SheetContent>
-    </Sheet>
-  );
-};
-
-const CartSheet = () => {
-  return (
-    <Sheet>
-      <SheetTrigger asChild className='flex'>
-        <Button variant='outline' size={"icon"} className='h-8 w-8 bg-black'>
-          <ShoppingCart size={16} />
-        </Button>
-      </SheetTrigger>
-      <SheetContent
-        side={"right"}
-        className='bg-black/10 backdrop-blur-sm w-full'
-      >
-        <SheetHeader>
-          <SheetTitle>Cart</SheetTitle>
-        </SheetHeader>
       </SheetContent>
     </Sheet>
   );

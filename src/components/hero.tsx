@@ -14,7 +14,7 @@ export const Hero = ({ products }: { products: Product[] }) => {
           className='relative group overflow-hidden col-span-3 min-w-[33%] md:col-span-1 first:col-span-3 md:first:row-span-2 md:first:col-span-2 h-[30vh] md:h-auto hover:border-sky-500  ease-in-out duration-300'
         >
           <Link
-            href={`/product/${product.title
+            href={`/products/${product.title
               .split(" ")
               .join("-")
               .split("'")

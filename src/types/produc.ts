@@ -1,6 +1,7 @@
 interface Product {
   id: string;
   title: string;
+  slug: string;
   category: string;
   vendor: string;
   description: string;
@@ -9,14 +10,25 @@ interface Product {
   currency: string;
   available: boolean;
   images: string[];
-  sizes: string[];
+  attributes: AttributesItem[];
   material: string;
   care: string;
   additional_info: Additional_info;
   rating: number;
-  reviews: any[];
+  reviews: ReviewsItem[];
+}
+interface AttributesItem {
+  name: string;
+  options: string[];
 }
 interface Additional_info {
   fit: string;
-  features: any[];
+  features: string[];
+}
+interface ReviewsItem {
+  id: string;
+  user_name: string;
+  rating: number;
+  review: string;
+  date: string;
 }

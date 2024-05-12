@@ -8,7 +8,6 @@ const BASE_URL =
 export async function getAllCategories() {
   try {
     const { data } = await axios.get(`${BASE_URL}/api/products`);
-    console.log(BASE_URL, data, "categories here");
     if (data.length === 0) return { categories: [] };
 
     const categories = new Set(
@@ -28,7 +27,6 @@ export async function getAllCategories() {
 export async function getHeroProducts() {
   try {
     const { data } = await axios.get(`${BASE_URL}/api/products`);
-    console.log(BASE_URL, data, "products here");
     if (data.length === 0) return { products: [] };
 
     return {
@@ -44,7 +42,6 @@ export async function getHeroProducts() {
 export async function getAllProducts() {
   try {
     const { data } = await axios.get(`${BASE_URL}/api/products`);
-    console.log(BASE_URL, data, "products here");
     if (data.length === 0) return { products: [] };
 
     return { products: data };
@@ -52,5 +49,20 @@ export async function getAllProducts() {
     console.log(error);
 
     return { products: [] };
+  }
+}
+
+export async function getProductBySlug(slug: string) {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/api/products`);
+    if (data.length === 0) return { product: [] };
+
+    const product = data.find((x: any) => x.slug === slug);
+
+    return { product };
+  } catch (error) {
+    console.log(error);
+
+    return { product: null };
   }
 }
