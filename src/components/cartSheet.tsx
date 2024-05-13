@@ -13,6 +13,7 @@ import { ProductInterface, useProductStore } from "@/store/product.store";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import ProductImage from "./productImage";
 
 export const CartSheet = () => {
   const { cart, removeItemFromCart, updateQty } = useProductStore();
@@ -78,19 +79,15 @@ export const CartSheet = () => {
                             onClick={() =>
                               removeItemFromCart(item.product.slug)
                             }
-                            className='absolute -top-3 -left-3 h-6 w-6 rounded-full'
+                            className='absolute -top-3 -left-3 h-6 w-6 rounded-full z-20'
                             size={"icon"}
                             variant={"destructive"}
                           >
                             <XIcon size={12} />
                           </Button>
-                          <Image
-                            src={item.product.images[0]}
-                            alt={item.product.title}
-                            height={70}
-                            width={70}
-                            className='object-cotain'
-                          />
+                          <div className='h-[70px] w-[70px]'>
+                            <ProductImage product={item.product} />
+                          </div>
                         </div>
                         <div className='w-full'>
                           <div className='flex justify-between'>

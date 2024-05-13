@@ -46,16 +46,18 @@ function ClientPage({ product }: { product: Product }) {
   };
 
   return (
-    <div className='min-h-screen lg:min-h-full lg:h-[80vh] justify-center items-center px-6 flex gap-10 flex-col lg:flex-row'>
+    <div className='min-h-screen lg:min-h-full  justify-center items-center px-6 flex gap-10 flex-col lg:flex-row'>
       <ProductImageComponent product={product} />
       <div className='w-full'>
         <div className='border-b pb-4'>
           <h1 className='text-[4rem] font-bold leading-[3.5rem] flex items-center justify-between'>
             {product.title}
-            <Heart
-              size={30}
-              className='stroke-red-500 cursor-pointer hover:fill-red-500 ease-in-out duration-300'
-            />
+            <Button className='' variant={"link"} size={"icon"}>
+              <Heart
+                size={30}
+                className='stroke-red-500 cursor-pointer hover:fill-red-500 ease-in-out duration-300'
+              />
+            </Button>
           </h1>
           <div className='mt-4 flex items-center justify-between w-full'>
             <span className='bg-primary w-fit p-2 rounded-3xl px-4'>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Separator } from "./ui/separator";
@@ -7,33 +7,55 @@ import { cn } from "@/lib/utils";
 
 export const ProductImageComponent = ({ product }: { product: Product }) => {
   const [selectedImage, setSelectedImage] = useState<number>(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (selectedImage !== -1 && carouselRef.current) {
+      const selectedImageElement = carouselRef.current.children[selectedImage];
+
+      const carouselHeight = carouselRef.current.offsetHeight;
+      const imageHeight = (selectedImageElement as HTMLElement).offsetHeight;
+      const offset = carouselHeight - imageHeight;
+
+      carouselRef.current.scrollTo({
+        top: (selectedImageElement as HTMLElement).offsetTop - offset + 10,
+        behavior: "smooth",
+      });
+    }
+  }, [product.images, selectedImage]);
+
   return (
-    <div className='relative aspect-square h-full max-h-[650px] w-full overflow-hidden'>
+    <div className='relative aspect-square h-full min-h-[60vh] lg:min-h-auto lg:max-h-[650px] w-full overflow-hidden'>
       <Image
         src={product.images[selectedImage]}
         alt={product.title}
         fill
         className='object-contain'
       />
-      <div className='absolute top-0 left-0 h-full flex flex-col items-center justify-center gap-2 overflow-y-auto my-4'>
-        {product.images.map((image, i) => (
-          <div
-            onClick={() => setSelectedImage(i)}
-            key={i}
-            className={cn(
-              "relative min-h-24 w-24 border rounded-md hover:border-sky-500 ease-in-out duration-300 cursor-pointer backdrop-blur-sm",
-              i === selectedImage ? "border-sky-500" : ""
-            )}
-          >
-            <Image
-              src={image}
-              alt={product.title}
-              fill
-              loading='lazy'
-              className='object-contain'
-            />
-          </div>
-        ))}
+      <div className='absolute top-0 left-0 flex items-center h-full'>
+        <div
+          ref={carouselRef}
+          className='flex flex-col gap-2 overflow-y-hidden h-[30rem] z-10'
+        >
+          {product.images.map((image, i) => (
+            <div
+              onClick={() => setSelectedImage(i)}
+              key={i}
+              className={cn(
+                "relative min-h-24 w-24 border rounded-md hover:border-sky-500 ease-in-out duration-300 cursor-pointer backdrop-blur-sm",
+                i === selectedImage ? "border-sky-500" : ""
+              )}
+            >
+              <Image
+                src={image}
+                alt={product.title}
+                fill
+                loading='eager'
+                className='object-contain'
+              />
+            </div>
+          ))}
+        </div>
       </div>
       <div className='absolute bottom-[15%] flex w-full justify-center'>
         <div className='mx-auto flex h-11 items-center rounded-full bg-neutral-50/80 text-neutral-500 backdrop-blur dark:bg-black/30'>

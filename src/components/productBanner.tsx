@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import ProductImage from "./productImage";
-import { Card } from "./ui/card";
 import ProductTitleCard from "./productTitleCard";
 
 export const ProductsBanner = ({ products }: { products: Product[] }) => {

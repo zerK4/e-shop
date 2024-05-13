@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -21,6 +22,7 @@ import {
 } from "./ui/sheet";
 import { Separator } from "./ui/separator";
 import { CartSheet } from "./cartSheet";
+import Image from "next/image";
 
 function Header({ categories }: { categories: never[] | Set<any> }) {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([
@@ -30,7 +32,9 @@ function Header({ categories }: { categories: never[] | Set<any> }) {
   return (
     <header className='flex items-center justify-between h-20 px-6'>
       <Link href={"/"}>
-        <div className='w-fit mr-4 hidden md:flex'>Logo</div>
+        <div className='w-fit mr-4 hidden md:flex items-center gap-2'>
+          <Image src={"/logo.png"} height={30} width={30} alt={"Aheader"} />
+        </div>
       </Link>
       <MobileNav selectedCategories={selectedCategories} />
       <nav className='md:flex flex-1 gap-2 hidden'>
@@ -38,14 +42,16 @@ function Header({ categories }: { categories: never[] | Set<any> }) {
           <Link
             key={i}
             className='text-zinc-500 hover:text-foreground ease-out duration-300 w-fit'
-            href={`/category/${category.toLowerCase()}`}
+            href={`/products?category=${category.toLowerCase()}`}
           >
             {category.charAt(0).toUpperCase() + category.slice(1)}
           </Link>
         ))}
       </nav>
       <div className='w-fit mr-4 flex md:hidden flex-1 justify-center'>
-        Logo
+        <Link href={"/"}>
+          <Image src={"/logo.png"} height={30} width={30} alt={"Aheader"} />
+        </Link>
       </div>
       <div className='md:flex flex-1 hidden gap-2 border-muted border rounded-md p-2'>
         <Input className='border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 h-6' />
@@ -91,13 +97,14 @@ const MobileNav = ({
           </div>
           <nav className='flex flex-col gap-2'>
             {selectedCategories.map((category, i) => (
-              <Link
-                key={i}
-                className='text-zinc-500 hover:text-foreground ease-out duration-300 w-fit'
-                href={`/category/${category.toLowerCase()}`}
-              >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </Link>
+              <SheetClose asChild key={i}>
+                <Link
+                  className='text-zinc-500 hover:text-foreground ease-out duration-300 w-fit'
+                  href={`/products?category=${category.toLowerCase()}`}
+                >
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </Link>
+              </SheetClose>
             ))}
           </nav>
         </div>

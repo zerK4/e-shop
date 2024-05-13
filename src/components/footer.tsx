@@ -3,12 +3,15 @@ import React from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { Input } from "./ui/input";
+import Image from "next/image";
 
 function Footer() {
   return (
-    <div className='pb-14 flex px-4 items-start relative flex-col border-t border-dashed pt-6'>
+    <div className='pb-14 flex px-6 items-start relative flex-col border-t border-dashed pt-6'>
       <div className='flex flex-col md:flex-row justify-between gap-2 md:items-center w-full z-20 mb-4'>
-        <div className='text-2xl font-bold'>Logo</div>
+        <div className='text-2xl font-bold'>
+          <Image src={"/logo.png"} height={30} width={30} alt={"Aheader"} />
+        </div>
         <div className='flex items-center gap-2'>
           <Input placeholder='Enter your email' />
           <Button className=''>Subscribe</Button>
@@ -55,9 +58,10 @@ function Footer() {
         </div>
       </div>
       <div className='absolute h-full w-full top-0 left-0 justify-center items-center flex'>
-        <h2 className='text-[5rem] opacity-20'>aheader</h2>
+        <h2 className='text-[3rem] sm:text-[5rem] opacity-20'>aheader</h2>
+        <Image src={"/logo.png"} height={50} width={50} alt={"Aheader"} />
       </div>
-      <div className='absolute bottom-0 left-0 w-full px-4 py-2 flex justify-between items-center'>
+      <div className='absolute bottom-0 left-0 w-full px-6 py-2 flex justify-between items-center'>
         <span className='flex items-center gap-2'>
           Made with <Heart size={12} className='stroke-red-500 fill-red-500' />
         </span>

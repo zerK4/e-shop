@@ -10,11 +10,7 @@ export async function getAllCategories() {
     const { data } = await axios.get(`${BASE_URL}/api/products`);
     if (data.length === 0) return { categories: [] };
 
-    const categories = new Set(
-      (data as Product[])
-        .map((x: any) => x.category)
-        .filter((x, i, self) => self.indexOf(x) === i)
-    );
+    const categories = new Set((data as Product[]).map((x: any) => x.category));
 
     return { categories };
   } catch (error) {
@@ -64,5 +60,38 @@ export async function getProductBySlug(slug: string) {
     console.log(error);
 
     return { product: null };
+  }
+}
+
+export async function getProductByCategory(category?: string) {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/api/products`);
+    if (data.length === 0) return { products: [] };
+
+    if (category) {
+      const products = data.filter((x: any) => x.category === category);
+      return { products };
+    }
+
+    return { products: data };
+  } catch (error) {
+    console.log(error);
+
+    return { products: [] };
+  }
+}
+
+export async function getAllBrands() {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/api/products`);
+    if (data.length === 0) return { brands: [] };
+
+    const brands = new Set((data as Product[]).map((x: Product) => x.vendor));
+
+    return { brands };
+  } catch (error) {
+    console.log(error);
+
+    return { brands: [] };
   }
 }
