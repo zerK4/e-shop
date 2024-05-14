@@ -8,7 +8,7 @@ export default async function Home() {
   const { products: allProducts } = await getAllProducts();
   console.log(products);
   return (
-    <div className='px-6 overflow-hidden'>
+    <div className='px-2 overflow-hidden'>
       <Hero products={products} />
       <ProductsBanner products={allProducts} />
     </div>

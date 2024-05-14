@@ -4,7 +4,9 @@ import { Minus, Plus, ShoppingCart, XIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -43,11 +45,11 @@ export const CartSheet = () => {
         <Button
           variant='outline'
           size={"icon"}
-          className='relative h-8 w-8 bg-black'
+          className='relative h-12 w-12 bg-black'
         >
           <span
             className={cn(
-              "absolute h-6 w-6 bg-transparent -top-3 -right-3 rounded-full flex items-center justify-center ease-in-out duration-300",
+              "absolute h-6 w-6 bg-transparent -top-3 -left-3 rounded-md flex items-center justify-center ease-in-out duration-300",
               cartContent?.length === 0 || !cartContent ? "" : " bg-red-500 "
             )}
           >
@@ -57,10 +59,11 @@ export const CartSheet = () => {
         </Button>
       </SheetTrigger>
       <SheetContent
+        showCloseButton={false}
         side={"right"}
-        className='bg-black/70 backdrop-blur-sm drop-filter w-full sm:max-w-xl'
+        className='bg-black/70 backdrop-blur-sm drop-filter w-full sm:max-w-xl max-h-[100dvh] px-0'
       >
-        <SheetHeader>
+        <SheetHeader className='px-4'>
           <SheetTitle>Cart</SheetTitle>
         </SheetHeader>
         {!cartContent || cartContent?.length === 0 ? (
@@ -68,95 +71,85 @@ export const CartSheet = () => {
             Pretty empty here...
           </div>
         ) : (
-          <div className='h-[95%] flex flex-col justify-between'>
-            <div className='my-4 h-full max-h-[90%]'>
-              {cartContent && cartContent?.length !== 0
-                ? cartContent?.map((item, i) => (
-                    <div key={i} className='flex flex-col justify-between'>
-                      <div className='flex gap-2 border-b py-2'>
-                        <div className='relative border rounded-md w-fit'>
+          <div className='mb-32 max-h-[60vh] md:min-h-[80vh] overflow-y-auto flex flex-col px-4 py-4'>
+            {cartContent && cartContent?.length !== 0
+              ? cartContent?.map((item, i) => (
+                  <div key={i} className='flex gap-2 border-b py-2'>
+                    <div className='relative border rounded-md h-[70px] w-[70px]'>
+                      <Button
+                        onClick={() => removeItemFromCart(item.product.slug)}
+                        className='absolute -top-3 -left-3 h-6 w-6 rounded-full z-20'
+                        size={"icon"}
+                        variant={"destructive"}
+                      >
+                        <XIcon size={12} />
+                      </Button>
+                      <div className='h-full w-full'>
+                        <ProductImage product={item.product} />
+                      </div>
+                    </div>
+                    <div className='w-full'>
+                      <div className='flex justify-between'>
+                        <Link
+                          href={`/products/${item.product.slug
+                            .split("-")
+                            .slice(0, -1)
+                            .join("-")}?${item.product.slug
+                            .split("-")
+                            .slice(-1)}`}
+                        >
+                          {" "}
+                          <h2 className='text-xl font-semibold'>
+                            {item.product.title}
+                          </h2>
+                          {/* "http://localhost:3000/products/hold-ma-wine-beanie-color=blue&sizes=xl" */}
+                        </Link>
+                        <span className=''>
+                          ${item.product.price * item.quantity}{" "}
+                          {item.product.currency}
+                        </span>
+                      </div>
+                      <div className='flex items-center justify-between w-full'>
+                        <span className='flex items-center'>
+                          {item.attributes.map((attr, i) => (
+                            <span key={i}>
+                              {attr.value}
+                              {i < item.attributes.length - 1 && (
+                                <span className='mx-2 text-zinc-500'>/</span>
+                              )}
+                            </span>
+                          ))}
+                        </span>
+                        <div className='flex items-center bg-neutral-900/50 backdrop-blur-sm h-10 rounded-full border'>
                           <Button
                             onClick={() =>
-                              removeItemFromCart(item.product.slug)
+                              updateQty(item.product.slug, item.quantity - 1)
                             }
-                            className='absolute -top-3 -left-3 h-6 w-6 rounded-full z-20'
                             size={"icon"}
-                            variant={"destructive"}
+                            className='bg-transparent rounded-l-full'
                           >
-                            <XIcon size={12} />
+                            <Minus size={12} />
                           </Button>
-                          <div className='h-[70px] w-[70px]'>
-                            <ProductImage product={item.product} />
-                          </div>
-                        </div>
-                        <div className='w-full'>
-                          <div className='flex justify-between'>
-                            <Link
-                              href={`/products/${item.product.slug
-                                .split("-")
-                                .slice(0, -1)
-                                .join("-")}?${item.product.slug
-                                .split("-")
-                                .slice(-1)}`}
-                            >
-                              {" "}
-                              <h2 className='text-xl font-semibold'>
-                                {item.product.title}
-                              </h2>
-                              {/* "http://localhost:3000/products/hold-ma-wine-beanie-color=blue&sizes=xl" */}
-                            </Link>
-                            <span className=''>
-                              ${item.product.price * item.quantity}{" "}
-                              {item.product.currency}
-                            </span>
-                          </div>
-                          <div className='flex items-center justify-between w-full'>
-                            <span className='flex items-center'>
-                              {item.attributes.map((attr, i) => (
-                                <span key={i}>
-                                  {attr.value}
-                                  {i < item.attributes.length - 1 && (
-                                    <span className='mx-2 text-zinc-500'>
-                                      /
-                                    </span>
-                                  )}
-                                </span>
-                              ))}
-                            </span>
-                            <div className='flex items-center bg-neutral-900/50 backdrop-blur-sm h-10 rounded-full border'>
-                              <Button
-                                onClick={() =>
-                                  updateQty(
-                                    item.product.slug,
-                                    item.quantity - 1
-                                  )
-                                }
-                                size={"icon"}
-                                className='bg-transparent rounded-l-full'
-                              >
-                                <Minus size={12} />
-                              </Button>
-                              <span className='px-2'>{item.quantity}</span>
-                              <Button
-                                onClick={() =>
-                                  updateQty(
-                                    item.product.slug,
-                                    item.quantity + 1
-                                  )
-                                }
-                                size={"icon"}
-                                className='bg-transparent rounded-r-full'
-                              >
-                                <Plus size={12} />
-                              </Button>
-                            </div>
-                          </div>
+                          <span className='px-2'>{item.quantity}</span>
+                          <Button
+                            onClick={() =>
+                              updateQty(item.product.slug, item.quantity + 1)
+                            }
+                            size={"icon"}
+                            className='bg-transparent rounded-r-full'
+                          >
+                            <Plus size={12} />
+                          </Button>
                         </div>
                       </div>
                     </div>
-                  ))
-                : null}
-            </div>
+                  </div>
+                ))
+              : null}
+          </div>
+        )}
+        <SheetFooter className='fixed bottom-2 right-0 w-full px-2 z-50 bg-black pt-2 border-t'>
+          <div className='flex flex-col gap-4 w-full'>
             <div className='flex flex-col gap-1'>
               <span className='flex justify-between border-b'>
                 Taxes: <span>${taxes}</span>
@@ -167,10 +160,25 @@ export const CartSheet = () => {
               <span className='flex justify-between border-b text-xl font-bold'>
                 Total: <span>${total}</span>
               </span>
-              <Button className='my-2'>Checkout</Button>
+            </div>
+            <div className='flex items-center gap-2 h-10 w-full'>
+              {cartContent?.length !== 0 && (
+                <Button className='my-2 w-full'>Checkout</Button>
+              )}
+              <SheetClose asChild className=''>
+                <Button
+                  className={cn(
+                    cartContent?.length === 0 ? "w-full" : "min-w-10"
+                  )}
+                  size={"icon"}
+                  variant={"outline"}
+                >
+                  <XIcon size={16} />
+                </Button>
+              </SheetClose>
             </div>
           </div>
-        )}
+        </SheetFooter>
       </SheetContent>
     </Sheet>
   );

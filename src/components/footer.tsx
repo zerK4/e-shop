@@ -7,7 +7,7 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <div className='pb-14 flex px-6 items-start relative flex-col pt-6 m-2 border rounded-md bg-black'>
+    <div className='pb-14 mb-20 md:mb-2 flex px-6 items-start relative flex-col pt-6 m-2 border rounded-md bg-black'>
       <div className='flex flex-col md:flex-row justify-between gap-2 md:items-center w-full z-20 mb-4'>
         <div className='text-2xl font-bold'>
           <Image src={"/logo.png"} height={30} width={30} alt={"Aheader"} />

@@ -35,14 +35,14 @@ export const ProductImageComponent = ({ product }: { product: Product }) => {
       <div className='absolute top-0 left-0 flex items-center h-full'>
         <div
           ref={carouselRef}
-          className='flex flex-col gap-2 overflow-y-hidden h-[30rem] z-10'
+          className='flex flex-col gap-2 overflow-y-hidden h-[30rem] z-10 py-10 md:py-0'
         >
           {product.images.map((image, i) => (
             <div
               onClick={() => setSelectedImage(i)}
               key={i}
               className={cn(
-                "relative min-h-24 w-24 border rounded-md hover:border-sky-500 ease-in-out duration-300 cursor-pointer backdrop-blur-sm",
+                "relative min-h-24 w-24 border border-transparent rounded-md hover:border-sky-500 ease-in-out duration-300 cursor-pointer backdrop-blur-sm bg-gray-500/10",
                 i === selectedImage ? "border-sky-500" : ""
               )}
             >
@@ -58,7 +58,7 @@ export const ProductImageComponent = ({ product }: { product: Product }) => {
         </div>
       </div>
       <div className='absolute bottom-[15%] flex w-full justify-center'>
-        <div className='mx-auto flex h-11 items-center rounded-full bg-neutral-50/80 text-neutral-500 backdrop-blur dark:bg-black/30'>
+        <div className='mx-auto flex h-fit items-center rounded-full text-neutral-500 backdrop-blur dark:bg-gray-500/20'>
           <Button
             className='rounded-l-full bg-transparent'
             onClick={() =>

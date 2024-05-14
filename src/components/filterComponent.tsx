@@ -18,9 +18,12 @@ import { Button } from "./ui/button";
 function FilterComponent({
   categories,
   brands,
+  showCommonFilters = false,
 }: {
   categories: never[] | Set<any>;
   brands: never[] | Set<any>;
+  showMobileFilter?: boolean;
+  showCommonFilters?: boolean;
 }) {
   const [currentFilters, setCurrentFilters] = useState<string[]>([
     "all",
@@ -30,16 +33,20 @@ function FilterComponent({
 
   return (
     <>
-      <div className='lg:flex flex-col gap-1 min-w-[15rem] bg-black border border-zinc-900 rounded-md mb-4 hidden'>
-        <CommonFilters
+      {showCommonFilters && (
+        <div className='lg:flex flex-col gap-1 min-w-[15rem] bg-black border border-zinc-900 rounded-md mb-4 hidden'>
+          <CommonFilters
+            currentFilters={currentFilters}
+            currentBrands={currentBrands}
+          />
+        </div>
+      )}
+      <div className='fixed right-0 top-0 h-[100dvh] flex flex-col items-center justify-center z-50 px-2'>
+        <MobileFiltering
           currentFilters={currentFilters}
           currentBrands={currentBrands}
         />
       </div>
-      <MobileFiltering
-        currentFilters={currentFilters}
-        currentBrands={currentBrands}
-      />
     </>
   );
 }
@@ -57,7 +64,7 @@ const MobileFiltering = ({
     <Sheet>
       <SheetTrigger asChild>
         <Button
-          className='min-w-10 flex lg:hidden'
+          className='min-w-10 flex lg:hidden h-12 w-12 bg-zinc-300/20 drop-filter backdrop-blur-sm border-none'
           size={"icon"}
           variant={"outline"}
         >

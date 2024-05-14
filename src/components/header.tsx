@@ -23,14 +23,27 @@ import {
 import { Separator } from "./ui/separator";
 import { CartSheet } from "./cartSheet";
 import Image from "next/image";
+import FilterComponent from "./filterComponent";
+import { usePathname } from "next/navigation";
 
-function Header({ categories }: { categories: never[] | Set<any> }) {
+function Header({
+  categories,
+  brands,
+}: {
+  categories: never[] | Set<any>;
+  brands: never[] | Set<any>;
+}) {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([
     "All",
     ...categories,
   ]);
+
+  const pathname = usePathname();
+
+  console.log(pathname.split("/")[1]);
+
   return (
-    <header className='flex items-center justify-between h-20 px-4'>
+    <header className='flex items-center justify-between h-20 px-4 fixed bottom-0 left-0 md:relative z-50 w-full bg-black/30 md:bg-transparent border-t md:border-none drop-filter'>
       <Link href={"/"}>
         <div className='w-fit mr-4 hidden md:flex items-center gap-2'>
           <Image src={"/logo.png"} height={30} width={30} alt={"Aheader"} />
@@ -59,7 +72,7 @@ function Header({ categories }: { categories: never[] | Set<any> }) {
           <Search size={16} />
         </Button>
       </div>
-      <div className='flex md:flex-1 justify-end'>
+      <div className='flex md:flex-1 justify-end items-center gap-2'>
         <CartSheet />
       </div>
     </header>
@@ -76,7 +89,7 @@ const MobileNav = ({
   return (
     <Sheet>
       <SheetTrigger asChild className='flex md:hidden'>
-        <Button className='h-8 w-8' variant={"outline"} size={"icon"}>
+        <Button className='h-12 w-12' variant={"outline"} size={"icon"}>
           <Menu size={16} />
         </Button>
       </SheetTrigger>
@@ -86,7 +99,18 @@ const MobileNav = ({
       >
         <div>
           <SheetHeader>
-            <SheetTitle>Logo</SheetTitle>
+            <SheetTitle>
+              <SheetClose asChild>
+                <Link href={"/"}>
+                  <Image
+                    src={"/logo.png"}
+                    height={30}
+                    width={30}
+                    alt={"Aheader"}
+                  />
+                </Link>
+              </SheetClose>
+            </SheetTitle>
           </SheetHeader>
           <Separator className='my-4' />
           <div className='flex items-center gap-2 mb-4'>

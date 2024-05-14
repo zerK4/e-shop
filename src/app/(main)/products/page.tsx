@@ -22,10 +22,13 @@ async function page({
   const { categories } = await getAllCategories();
   const { brands } = await getAllBrands();
 
-  console.log(products);
   return (
     <div className='flex flex-col lg:flex-row gap-2 px-2'>
-      <FilterComponent categories={categories} brands={brands} />
+      <FilterComponent
+        showCommonFilters
+        categories={categories}
+        brands={brands}
+      />
       <ClientPage products={products} />
     </div>
   );
