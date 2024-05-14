@@ -1,15 +1,25 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React, { useState } from "react";
 
-function ProductImage({ product }: { product: Product }) {
+function ProductImage({
+  product,
+  className,
+}: {
+  product: Product;
+  className?: string;
+}) {
   const [isHovering, setIsHovering] = useState<boolean>(false);
   return (
     <div
       onMouseOver={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className='group flex h-full w-full items-center justify-center overflow-hidden rounded-lg bg-white  dark:bg-black relative aspect-square '
+      className={cn(
+        "group flex h-full w-full items-center justify-center overflow-hidden rounded-lg bg-white  dark:bg-black relative aspect-square ",
+        className
+      )}
     >
       <Image
         src={

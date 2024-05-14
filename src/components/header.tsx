@@ -30,7 +30,7 @@ function Header({ categories }: { categories: never[] | Set<any> }) {
     ...categories,
   ]);
   return (
-    <header className='flex items-center justify-between h-20 px-6'>
+    <header className='flex items-center justify-between h-20 px-4'>
       <Link href={"/"}>
         <div className='w-fit mr-4 hidden md:flex items-center gap-2'>
           <Image src={"/logo.png"} height={30} width={30} alt={"Aheader"} />

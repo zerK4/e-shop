@@ -12,8 +12,8 @@ import {
 import { ProductInterface, useProductStore } from "@/store/product.store";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import ProductImage from "./productImage";
+import Link from "next/link";
 
 export const CartSheet = () => {
   const { cart, removeItemFromCart, updateQty } = useProductStore();
@@ -58,7 +58,7 @@ export const CartSheet = () => {
       </SheetTrigger>
       <SheetContent
         side={"right"}
-        className='bg-black/70 backdrop-blur-sm w-full sm:max-w-[50vw]'
+        className='bg-black/70 backdrop-blur-sm drop-filter w-full sm:max-w-xl'
       >
         <SheetHeader>
           <SheetTitle>Cart</SheetTitle>
@@ -91,22 +91,35 @@ export const CartSheet = () => {
                         </div>
                         <div className='w-full'>
                           <div className='flex justify-between'>
-                            <h2 className='text-xl font-semibold'>
-                              {item.product.title}
-                            </h2>
+                            <Link
+                              href={`/products/${item.product.slug
+                                .split("-")
+                                .slice(0, -1)
+                                .join("-")}?${item.product.slug
+                                .split("-")
+                                .slice(-1)}`}
+                            >
+                              {" "}
+                              <h2 className='text-xl font-semibold'>
+                                {item.product.title}
+                              </h2>
+                              {/* "http://localhost:3000/products/hold-ma-wine-beanie-color=blue&sizes=xl" */}
+                            </Link>
                             <span className=''>
                               ${item.product.price * item.quantity}{" "}
                               {item.product.currency}
                             </span>
                           </div>
                           <div className='flex items-center justify-between w-full'>
-                            <span className='flex items-center gap-2'>
+                            <span className='flex items-center'>
                               {item.attributes.map((attr, i) => (
-                                <span
-                                  key={i}
-                                  className='px-4 py-1 rounded-3xl border border-primary'
-                                >
+                                <span key={i}>
                                   {attr.value}
+                                  {i < item.attributes.length - 1 && (
+                                    <span className='mx-2 text-zinc-500'>
+                                      /
+                                    </span>
+                                  )}
                                 </span>
                               ))}
                             </span>

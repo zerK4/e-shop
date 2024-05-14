@@ -24,7 +24,7 @@ async function page({
 
   console.log(products);
   return (
-    <div className='flex flex-col lg:flex-row gap-2 px-6'>
+    <div className='flex flex-col lg:flex-row gap-2 px-2'>
       <FilterComponent categories={categories} brands={brands} />
       <ClientPage products={products} />
     </div>

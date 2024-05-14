@@ -3,9 +3,14 @@
 import { ProductImageComponent } from "@/components/productImageComponent";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { useProductStore } from "@/store/product.store";
-import { ArrowUp, Heart, Plus, Star } from "lucide-react";
+import { ProductInterface, useProductStore } from "@/store/product.store";
+import { ArrowUp, Heart, Plus, Star, Trash } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -13,7 +18,12 @@ import { toast } from "sonner";
 function ClientPage({ product }: { product: Product }) {
   const [canAdd, setCanAdd] = useState<boolean>(false);
   const [isInCart, setIsInCart] = useState<boolean>(false);
-  const { updateCart, existsInCart } = useProductStore();
+  const [cartItem, setCartItem] = useState<ProductInterface["cart"][0] | null>(
+    null
+  );
+
+  const { addToCart, existsInCart, cart, updateQty, removeItemFromCart } =
+    useProductStore();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -21,13 +31,18 @@ function ClientPage({ product }: { product: Product }) {
   useEffect(() => {
     setCanAdd(true);
 
+    setIsInCart(!!existsInCart(`${product.slug}-${searchParams.toString()}`));
+
     product.attributes.some((attr) => {
       const exists = searchParams.get(attr.name.toLowerCase());
       if (!exists) setCanAdd(false);
     });
 
-    if (existsInCart(product.slug)) setIsInCart(true);
-  }, [searchParams, product, existsInCart]);
+    if (existsInCart(`${product.slug}-${searchParams.toString()}`)) {
+      setIsInCart(true);
+      setCartItem(existsInCart(`${product.slug}-${searchParams.toString()}`));
+    }
+  }, [searchParams, product, existsInCart, cart]);
 
   const updateSearchParams = ({
     key,
@@ -42,11 +57,47 @@ function ClientPage({ product }: { product: Product }) {
     } else {
       params.delete(key);
     }
-    router.push(`${pathname}?${params.toString()}`);
+
+    setIsInCart(!!existsInCart(`${product.slug}-${searchParams.toString()}`));
+
+    router.push(`${pathname}?${params.toString()}`, {
+      scroll: false,
+    });
+  };
+
+  const handleAddToCart = () => {
+    if (canAdd && !isInCart) {
+      addToCart({
+        product: {
+          ...product,
+          slug: `${product.slug}-${searchParams.toString()}`,
+        },
+        attributes: [
+          ...searchParams
+            .toString()
+            .split("&")
+            .map((param) => {
+              const [key, value] = param.split("=");
+              return { key, value };
+            }),
+        ],
+        qty: 1,
+      });
+      setIsInCart(true);
+    } else if (!canAdd) {
+      toast.warning("Please select product attributes.");
+    }
+
+    if (isInCart && cartItem) {
+      updateQty(
+        `${product.slug}-${searchParams.toString()}`,
+        cartItem.quantity + 1
+      );
+    }
   };
 
   return (
-    <div className='min-h-screen lg:min-h-full  justify-center items-center px-6 flex gap-10 flex-col lg:flex-row'>
+    <div className='min-h-screen lg:min-h-full  justify-center items-center px-6 flex gap-10 flex-col lg:flex-row m-2 border rounded-md bg-black'>
       <ProductImageComponent product={product} />
       <div className='w-full'>
         <div className='border-b pb-4'>
@@ -106,25 +157,9 @@ function ClientPage({ product }: { product: Product }) {
           <span>{product.description}</span>
         </div>
         <Separator className='my-4' />
-        <div className='my-4 w-full'>
+        <div className='my-4 w-full flex justify-between items-center'>
           <Button
-            onClick={() => {
-              canAdd
-                ? updateCart({
-                    product,
-                    attributes: [
-                      ...searchParams
-                        .toString()
-                        .split("&")
-                        .map((param) => {
-                          const [key, value] = param.split("=");
-                          return { key, value };
-                        }),
-                    ],
-                    qty: 1,
-                  })
-                : toast.warning("Please select attributes");
-            }}
+            onClick={handleAddToCart}
             className={cn(
               " rounded-3xl p-6 relative",
               isInCart ? "w-fit pl-9" : "w-full"
@@ -135,6 +170,21 @@ function ClientPage({ product }: { product: Product }) {
               {isInCart ? <ArrowUp size={16} /> : <Plus size={16} />}
             </span>
           </Button>
+          {isInCart && cartItem && (
+            <Tooltip delayDuration={0}>
+              <TooltipTrigger asChild>
+                <Button
+                  onClick={() => removeItemFromCart(cartItem.product.slug)}
+                  className=''
+                  size={"icon"}
+                  variant={"destructive"}
+                >
+                  <Trash className='' size={16} />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Remove from cart</TooltipContent>
+            </Tooltip>
+          )}
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ import { Heart } from "lucide-react";
 
 export const Hero = ({ products }: { products: Product[] }) => {
   return (
-    <div className='grid grid-cols-3 h-[90vh] gap-4'>
+    <div className='grid grid-cols-3 gap-4 items-start'>
       {products.map((product, i) => (
         <Card
           key={i}

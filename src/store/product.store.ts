@@ -10,45 +10,26 @@ export interface ProductInterface {
       [key: string]: string;
     }[];
   }[];
-  updateCart: ({
+  addToCart: ({
     product,
     qty,
     attributes,
   }: {
     product: Product;
     qty: number;
-    attributes: {
-      [key: string]: string;
-    }[];
+    attributes: { [key: string]: string }[];
   }) => void;
   removeItemFromCart: (id: string) => void;
   updateQty: (id: string, qty: number) => void;
-  existsInCart: (id: string) => boolean;
+  existsInCart: (id: string) => ProductInterface["cart"][0] | null;
 }
 
 export const useProductStore = create(
   persist<ProductInterface>(
     (set, get) => ({
       cart: [],
-      updateCart: ({ product, qty, attributes }) => {
+      addToCart: ({ product, qty, attributes }) => {
         set((state) => {
-          const exists = state.cart.find(
-            (x) => x.product.slug === product.slug
-          );
-
-          if (exists) {
-            toast.success("Quantity updated successfully");
-            return {
-              cart: [
-                ...state.cart.map((item) => {
-                  return item.product.slug === exists.product.slug
-                    ? { ...item, quantity: item.quantity + qty }
-                    : item;
-                }),
-              ],
-            };
-          }
-
           toast.success("Product added successfully");
           return {
             cart: [
@@ -88,8 +69,16 @@ export const useProductStore = create(
         toast.success("Quantity updated successfully");
         set({ cart: updatedCart });
       },
-      existsInCart(id) {
-        return get().cart.some((item) => item.product.slug === id);
+      existsInCart(id: string) {
+        const item = get().cart.find((item) => {
+          if (item.product.slug === id) {
+            return item;
+          }
+
+          return false; // Early termination for efficiency
+        });
+
+        return item || null; // Return item or null if not found
       },
     }),
     {

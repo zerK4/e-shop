@@ -7,9 +7,9 @@ async function Mainlayout({ children }: { children: React.ReactNode }) {
   const { categories } = await getAllCategories();
 
   return (
-    <div>
+    <div className='max-w-7xl grid grid-cols-1 mx-auto'>
       <Header categories={categories} />
-      {children}
+      <div className=''>{children}</div>
       <Footer />
     </div>
   );
