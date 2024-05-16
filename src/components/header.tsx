@@ -73,6 +73,9 @@ function Header({
         </Button>
       </div>
       <div className='flex md:flex-1 justify-end items-center gap-2'>
+        <Button className='hidden md:flex' variant={"link"}>
+          Login/Register
+        </Button>
         <CartSheet />
       </div>
     </header>
@@ -132,18 +135,23 @@ const MobileNav = ({
             ))}
           </nav>
         </div>
-        <div className='flex items-center gap-2'>
-          <Button className='h-8 w-8' size={"icon"} variant={"outline"}>
-            <Facebook size={16} />
-          </Button>
-          <Button className='h-8 w-8' size={"icon"} variant={"outline"}>
-            <Instagram size={16} />
-          </Button>
-          <Button className='h-8 w-8' size={"icon"} variant={"outline"}>
-            <Linkedin size={16} />
-          </Button>
-          <Button className='h-8 w-8' size={"icon"} variant={"outline"}>
-            <Youtube size={16} />
+        <div className='flex items-center justify-between w-full'>
+          <div className='flex items-center gap-2'>
+            <Button className='h-8 w-8' size={"icon"} variant={"outline"}>
+              <Facebook size={16} />
+            </Button>
+            <Button className='h-8 w-8' size={"icon"} variant={"outline"}>
+              <Instagram size={16} />
+            </Button>
+            <Button className='h-8 w-8' size={"icon"} variant={"outline"}>
+              <Linkedin size={16} />
+            </Button>
+            <Button className='h-8 w-8' size={"icon"} variant={"outline"}>
+              <Youtube size={16} />
+            </Button>
+          </div>
+          <Button className='' variant={"link"}>
+            Login/Register
           </Button>
         </div>
       </SheetContent>

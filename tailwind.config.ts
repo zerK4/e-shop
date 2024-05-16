@@ -79,7 +79,22 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, any>) => void;
+    }) => {
+      addUtilities({
+        ".scrollbar-none": {
+          "&::-webkit-scrollbar": {
+            "display": "none",
+          },
+        },
+      });
+    },
+  ],
 } satisfies Config;
 
 export default config;

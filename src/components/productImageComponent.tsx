@@ -18,7 +18,10 @@ export const ProductImageComponent = ({ product }: { product: Product }) => {
       const offset = carouselHeight - imageHeight;
 
       carouselRef.current.scrollTo({
-        top: (selectedImageElement as HTMLElement).offsetTop - offset + 10,
+        top:
+          (selectedImageElement as HTMLElement).offsetTop -
+          offset +
+          carouselHeight / 4,
         behavior: "smooth",
       });
     }
@@ -35,7 +38,7 @@ export const ProductImageComponent = ({ product }: { product: Product }) => {
       <div className='absolute top-0 left-0 flex items-center h-full'>
         <div
           ref={carouselRef}
-          className='flex flex-col gap-2 overflow-y-hidden h-[30rem] z-10 py-10 md:py-0'
+          className='flex flex-col gap-2 overflow-y-auto h-[30rem] z-10 py-10 md:py-0 scrollbar-none'
         >
           {product.images.map((image, i) => (
             <div
