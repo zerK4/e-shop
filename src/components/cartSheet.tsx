@@ -59,9 +59,9 @@ export const CartSheet = () => {
         </Button>
       </SheetTrigger>
       <SheetContent
-        showCloseButton={false}
+        // showCloseButton={false}
         side={"right"}
-        className='bg-black/70 backdrop-blur-sm drop-filter w-full sm:max-w-xl max-h-[100dvh] px-0'
+        className='bg-black/70 backdrop-blur-sm drop-filter w-full h-screen sm:max-w-xl px-0 pb-[12rem]'
       >
         <SheetHeader className='px-4'>
           <SheetTitle>Cart</SheetTitle>
@@ -71,7 +71,7 @@ export const CartSheet = () => {
             Pretty empty here...
           </div>
         ) : (
-          <div className='mb-32 max-h-[60vh] md:min-h-[80vh] overflow-y-auto flex flex-col px-4 py-4'>
+          <div className='mb-32 overflow-y-auto flex flex-col px-4 py-4 w-full h-full'>
             {cartContent && cartContent?.length !== 0
               ? cartContent?.map((item, i) => (
                   <div key={i} className='flex gap-2 border-b py-2'>
@@ -102,7 +102,6 @@ export const CartSheet = () => {
                           <h2 className='text-xl font-semibold'>
                             {item.product.title}
                           </h2>
-                          {/* "http://localhost:3000/products/hold-ma-wine-beanie-color=blue&sizes=xl" */}
                         </Link>
                         <span className=''>
                           ${item.product.price * item.quantity}{" "}
@@ -148,7 +147,7 @@ export const CartSheet = () => {
               : null}
           </div>
         )}
-        <SheetFooter className='fixed bottom-2 right-0 w-full px-2 z-50 bg-black pt-2 border-t'>
+        <SheetFooter className='sticky bottom-2 w-full px-2 z-50 bg-black pt-2 border-t'>
           <div className='flex flex-col gap-4 w-full'>
             <div className='flex flex-col gap-1'>
               <span className='flex justify-between border-b'>
@@ -165,10 +164,11 @@ export const CartSheet = () => {
               {cartContent?.length !== 0 && (
                 <Button className='my-2 w-full'>Checkout</Button>
               )}
-              <SheetClose asChild className=''>
+              <SheetClose asChild className='flex md:hidden'>
                 <Button
                   className={cn(
-                    cartContent?.length === 0 ? "w-full" : "min-w-10"
+                    cartContent?.length === 0 ? "w-full" : "min-w-10",
+                    "h-10"
                   )}
                   size={"icon"}
                   variant={"outline"}

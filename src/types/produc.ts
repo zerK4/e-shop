@@ -4,6 +4,7 @@ interface Product {
   slug: string;
   category: string;
   vendor: string;
+  current_stock: number;
   description: string;
   price: number;
   sale_price: null;

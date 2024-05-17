@@ -66,6 +66,11 @@ function ClientPage({ product }: { product: Product }) {
   };
 
   const handleAddToCart = () => {
+    if (product.current_stock === 0) {
+      toast.warning("Product out of stock.");
+      return;
+    }
+
     if (canAdd && !isInCart) {
       addToCart({
         product: {
@@ -159,15 +164,29 @@ function ClientPage({ product }: { product: Product }) {
         <Separator className='my-4' />
         <div className='my-4 w-full flex justify-between items-center'>
           <Button
+            variant={product.current_stock === 0 ? "outline" : "default"}
             onClick={handleAddToCart}
             className={cn(
-              " rounded-3xl p-6 relative",
-              isInCart ? "w-fit pl-9" : "w-full"
+              "rounded-3xl p-6 relative",
+              isInCart ? "w-fit pl-9" : "w-full",
+              canAdd && product.current_stock > 0
+                ? "bg-primary"
+                : product.current_stock === 0
+                ? ""
+                : "bg-gray-300 text-black hover:bg-gray-300"
             )}
           >
-            {isInCart ? "Increase quantity" : "Add to cart"}
+            {isInCart
+              ? "Increase quantity"
+              : product.current_stock === 0
+              ? "Out of stock"
+              : "Add to cart"}
             <span className='absolute left-0 top-0 flex items-center h-full w-10 justify-center'>
-              {isInCart ? <ArrowUp size={16} /> : <Plus size={16} />}
+              {isInCart ? (
+                <ArrowUp size={16} />
+              ) : product.current_stock === 0 ? null : (
+                <Plus size={16} />
+              )}
             </span>
           </Button>
           {isInCart && cartItem && (

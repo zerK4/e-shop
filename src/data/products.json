@@ -9,6 +9,7 @@
         "price": 9.99,
         "sale_price": null,
         "currency": "USD",
+        "current_stock": 100,
         "available": true,
         "images": [
             "https://utfs.io/f/35e9a65c-e854-4530-95a2-878167443181-1mu7dx.png",
@@ -94,6 +95,7 @@
         "price": 14.99,
         "sale_price": null,
         "currency": "USD",
+        "current_stock": 100,
         "available": true,
         "images": [
             "https://utfs.io/f/e3c1894a-aa95-4ddd-8a9b-6a30e900f0ed-iwplhg.png",
@@ -178,6 +180,7 @@
         "price": 14.99,
         "sale_price": null,
         "currency": "USD",
+        "current_stock": 0,
         "available": true,
         "images": [
             "https://utfs.io/f/479399b7-1398-4f14-9d7a-15129ef1ce8a-arqk0t.png",
@@ -263,6 +266,7 @@
         "price": 14.99,
         "sale_price": null,
         "currency": "USD",
+        "current_stock": 1,
         "available": true,
         "images": [
             "https://utfs.io/f/479399b7-1398-4f14-9d7a-15129ef1ce8a-arqk0t.png"
@@ -345,6 +349,7 @@
         "price": 14.99,
         "sale_price": null,
         "currency": "USD",
+        "current_stock": 70,
         "available": true,
         "images": [
             "https://utfs.io/f/479399b7-1398-4f14-9d7a-15129ef1ce8a-arqk0t.png"
@@ -427,6 +432,7 @@
         "price": 14.99,
         "sale_price": null,
         "currency": "USD",
+        "current_stock": 100,
         "available": true,
         "images": [
             "https://utfs.io/f/9e5c1b43-acaa-4277-ab4b-ce30affca089-oqxc7l.png",
@@ -516,6 +522,7 @@
         "price": 14.99,
         "sale_price": null,
         "currency": "USD",
+        "current_stock": 50,
         "available": true,
         "images": [
             "https://utfs.io/f/1a6caeae-a171-4c42-8120-f933ca62e14e-25huue.png",
@@ -606,6 +613,7 @@
         "price": 14.99,
         "sale_price": null,
         "currency": "USD",
+        "current_stock": 10,
         "available": true,
         "images": [
             "https://utfs.io/f/fad3ca92-ac0d-4c71-86dd-61270a2f4540-q2eauh.png",
@@ -692,6 +700,7 @@
         "price": 14.99,
         "sale_price": null,
         "currency": "USD",
+        "current_stock": 0,
         "available": true,
         "images": [
             "https://utfs.io/f/02c1998c-86e5-44d1-8508-e87621d7dc36-nz6osn.png",
