@@ -18,12 +18,17 @@ import { toast } from "sonner";
 function ClientPage({ product }: { product: Product }) {
   const [canAdd, setCanAdd] = useState<boolean>(false);
   const [isInCart, setIsInCart] = useState<boolean>(false);
-  const [cartItem, setCartItem] = useState<ProductInterface["cart"][0] | null>(
-    null
-  );
+  const [cartItem, setCartItem] = useState<
+    ProductInterface["cartProducts"][0] | null
+  >(null);
 
-  const { addToCart, existsInCart, cart, updateQty, removeItemFromCart } =
-    useProductStore();
+  const {
+    addToCart,
+    existsInCart,
+    cartProducts,
+    updateQty,
+    removeItemFromCart,
+  } = useProductStore();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -42,7 +47,7 @@ function ClientPage({ product }: { product: Product }) {
       setIsInCart(true);
       setCartItem(existsInCart(`${product.slug}-${searchParams.toString()}`));
     }
-  }, [searchParams, product, existsInCart, cart]);
+  }, [searchParams, product, existsInCart, cartProducts]);
 
   const updateSearchParams = ({
     key,

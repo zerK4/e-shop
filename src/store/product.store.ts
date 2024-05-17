@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export interface ProductInterface {
-  cart: {
+  cartProducts: {
     product: Product;
     quantity: number;
     attributes: {
@@ -21,19 +21,19 @@ export interface ProductInterface {
   }) => void;
   removeItemFromCart: (id: string) => void;
   updateQty: (id: string, qty: number) => void;
-  existsInCart: (id: string) => ProductInterface["cart"][0] | null;
+  existsInCart: (id: string) => ProductInterface["cartProducts"][0] | null;
 }
 
 export const useProductStore = create(
   persist<ProductInterface>(
     (set, get) => ({
-      cart: [],
+      cartProducts: [],
       addToCart: ({ product, qty, attributes }) => {
         set((state) => {
           toast.success("Product added successfully");
           return {
-            cart: [
-              ...state.cart,
+            cartProducts: [
+              ...state.cartProducts,
               {
                 product,
                 quantity: qty,
@@ -44,10 +44,10 @@ export const useProductStore = create(
         });
       },
       removeItemFromCart: (id) => {
-        const updatedCart = get().cart.filter(
+        const updatedCart = get().cartProducts.filter(
           (item) => item.product.slug !== id
         );
-        set({ cart: updatedCart });
+        set({ cartProducts: updatedCart });
         toast.success("Product removed successfully");
       },
       updateQty(id, qty) {
@@ -57,7 +57,7 @@ export const useProductStore = create(
           return;
         }
 
-        const updatedCart = get().cart.map((item) => {
+        const updatedCart = get().cartProducts.map((item) => {
           if (item.product.slug === id) {
             return {
               ...item,
@@ -67,10 +67,10 @@ export const useProductStore = create(
           return item;
         });
         toast.success("Quantity updated successfully");
-        set({ cart: updatedCart });
+        set({ cartProducts: updatedCart });
       },
       existsInCart(id: string) {
-        const item = get().cart.find((item) => {
+        const item = get().cartProducts.find((item) => {
           if (item.product.slug === id) {
             return item;
           }
