@@ -9,6 +9,7 @@ import {
 import { useSearchParams } from "next/navigation";
 import { Button } from "./ui/button";
 import { StripePaymentElementOptions } from "@stripe/stripe-js";
+import { toast } from "sonner";
 
 export default function PaymentForm() {
   const stripe = useStripe();
@@ -75,9 +76,9 @@ export default function PaymentForm() {
     // be redirected to an intermediate site first to authorize the payment, then
     // redirected to the `return_url`.
     if (error.type === "card_error" || error.type === "validation_error") {
-      setMessage(error.message as string);
+      toast.error(error.message as string);
     } else {
-      setMessage("An unexpected error occurred.");
+      toast.error(error.message as string);
     }
 
     setIsLoading(false);
@@ -111,7 +112,6 @@ export default function PaymentForm() {
             )}
           </span>
         </Button>
-        {message && <div id=''>{message}</div>}
       </div>
     </form>
   );
