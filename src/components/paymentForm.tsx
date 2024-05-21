@@ -21,6 +21,7 @@ export default function PaymentForm() {
   const router = useRouter();
 
   const { shipmentData } = usePaymentStore();
+  const { totalPrice } = useProductStore();
 
   const [message, setMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -129,7 +130,7 @@ export default function PaymentForm() {
               {isLoading ? (
                 <Loader size={16} className='animate-spin' />
               ) : (
-                "Pay now"
+                <span>Pay {totalPrice} USD</span>
               )}
             </span>
           </Button>

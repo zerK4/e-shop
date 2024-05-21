@@ -10,6 +10,7 @@ export interface ProductInterface {
       [key: string]: string;
     }[];
   }[];
+  totalPrice: string | null;
   addToCart: ({
     product,
     qty,
@@ -28,6 +29,7 @@ export const useProductStore = create(
   persist<ProductInterface>(
     (set, get) => ({
       cartProducts: [],
+      totalPrice: null,
       addToCart: ({ product, qty, attributes }) => {
         set((state) => {
           toast.success("Product added successfully");

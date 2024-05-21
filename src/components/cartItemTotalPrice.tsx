@@ -18,6 +18,9 @@ function CartItemTotalPrice() {
     setTotal(currentTotal.toFixed(2));
 
     setTaxes(ttaxes.toFixed(2));
+    useProductStore.setState({
+      totalPrice: currentTotal.toFixed(2),
+    });
   }, [cartProducts]);
 
   return (
