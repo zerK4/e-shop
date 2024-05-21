@@ -113,6 +113,9 @@ export default function PaymentForm() {
     >
       <div className='flex flex-col gap-4'>
         <h2 className='text-xl font-bold h-fit'>Payment Information</h2>
+        <p className='text-red-500'>
+          Do not try this, it works and you will be taxed with 2RON
+        </p>
         <PaymentElement
           id='payment-element'
           options={paymentElementOptions as StripePaymentElementOptions}
