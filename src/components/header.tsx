@@ -23,8 +23,8 @@ import {
 import { Separator } from "./ui/separator";
 import { CartSheet } from "./cartSheet";
 import Image from "next/image";
-import FilterComponent from "./filterComponent";
 import { usePathname } from "next/navigation";
+import FavoritesDropdown from "./favoritesDropdown";
 
 function Header({
   categories,
@@ -73,9 +73,10 @@ function Header({
         </Button>
       </div>
       <div className='flex md:flex-1 justify-end items-center gap-2'>
-        <Button className='hidden md:flex' variant={"link"}>
+        <FavoritesDropdown />
+        {/* <Button className='hidden md:flex' variant={"link"}>
           Login/Register
-        </Button>
+        </Button> */}
         <CartSheet />
       </div>
     </header>
@@ -150,9 +151,10 @@ const MobileNav = ({
               <Youtube size={16} />
             </Button>
           </div>
-          <Button className='' variant={"link"}>
+          <FavoritesDropdown />
+          {/* <Button className='' variant={"link"}>
             Login/Register
-          </Button>
+          </Button> */}
         </div>
       </SheetContent>
     </Sheet>

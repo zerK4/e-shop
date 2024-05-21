@@ -6,6 +6,7 @@ import Link from "next/link";
 import ProductTitleCard from "./productTitleCard";
 import { Button } from "./ui/button";
 import { Heart } from "lucide-react";
+import FavoriteButton from "./favoriteButton";
 
 export const Hero = ({ products }: { products: Product[] }) => {
   return (
@@ -19,16 +20,7 @@ export const Hero = ({ products }: { products: Product[] }) => {
             href={`/products/${product.slug}`}
             className='relative block h-full w-full'
           >
-            <Button
-              className='group/heart absolute top-4 right-0 group-hover:right-4 z-10 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 ease-in-out duration-300'
-              size={"icon"}
-              variant={"link"}
-            >
-              <Heart
-                size={30}
-                className='stroke-red-500 group-hover/heart:fill-red-500 ease-in-out duration-300'
-              />
-            </Button>
+            <FavoriteButton product={product} />
             <div className='group flex h-full w-full items-center justify-center overflow-hidden rounded-lg bg-white  dark:bg-black relative aspect-square '>
               <Image
                 src={product.images[1] ?? ""}

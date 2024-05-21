@@ -1,5 +1,6 @@
 "use client";
 
+import FavoriteButton from "@/components/favoriteButton";
 import ProductImage from "@/components/productImage";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
@@ -19,16 +20,7 @@ function ClientPage({ products }: { products: Product[] }) {
             key={i}
             className='group h-full w-full border rounded-md border-zinc-900 hover:border-primary relative overflow-hidden'
           >
-            <Button
-              className='group/heart absolute top-2 right-0 group-hover:right-2 z-10 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 ease-in-out duration-300'
-              size={"icon"}
-              variant={"link"}
-            >
-              <Heart
-                size={24}
-                className='stroke-red-500 group-hover/heart:fill-red-500 ease-in-out duration-300'
-              />
-            </Button>
+            <FavoriteButton product={product} />
             <ProductImage product={product} key={i} />
             <div className='absolute bottom-2 left-2 rounded-sm bg-black/10 border border-neutral-900 backdrop-blur-sm flex items-center gap-2'>
               <span className='bg-primary p-2 rounded-l-md'>

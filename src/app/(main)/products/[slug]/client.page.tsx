@@ -1,5 +1,6 @@
 "use client";
 
+import FavoriteButton from "@/components/favoriteButton";
 import { ProductImageComponent } from "@/components/productImageComponent";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -81,6 +82,7 @@ function ClientPage({ product }: { product: Product }) {
         product: {
           ...product,
           slug: `${product.slug}-${searchParams.toString()}`,
+          initialSlug: product.slug,
         },
         attributes: [
           ...searchParams
@@ -113,12 +115,7 @@ function ClientPage({ product }: { product: Product }) {
         <div className='border-b pb-4'>
           <h1 className='text-[4rem] font-bold leading-[3.5rem] flex items-center justify-between'>
             {product.title}
-            <Button className='' variant={"link"} size={"icon"}>
-              <Heart
-                size={30}
-                className='stroke-red-500 cursor-pointer hover:fill-red-500 ease-in-out duration-300'
-              />
-            </Button>
+            <FavoriteButton product={product} display />
           </h1>
           <div className='mt-4 flex items-center justify-between w-full'>
             <span className='bg-primary w-fit p-2 rounded-3xl px-4'>

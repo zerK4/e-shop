@@ -41,7 +41,7 @@ function FilterComponent({
           />
         </div>
       )}
-      <div className='fixed right-0 top-0 h-[100dvh] flex flex-col items-center justify-center z-50 px-2'>
+      <div className='fixed right-0 my-auto top-[45vh] flex flex-col items-center justify-center z-50 px-2'>
         <MobileFiltering
           currentFilters={currentFilters}
           currentBrands={currentBrands}
